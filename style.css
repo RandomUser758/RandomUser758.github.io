@@ -1,3 +1,196 @@
+/* ========================================= */
+/* Mobile Responsiveness            */
+/* ========================================= */
+@media (max-width: 768px) {
+
+    /* Make main layout vertical */
+    .app-container {
+        flex-direction: column;
+        height: auto; /* Allow content height */
+        overflow-y: auto; /* Allow scrolling on the whole page */
+    }
+
+    /* Sidebar adjustments */
+    .sidebar {
+        width: 100%;     /* Full width */
+        height: auto;     /* Adjust height automatically */
+        padding: 10px 0; /* Reduce vertical padding */
+        flex-direction: row; /* Arrange header and nav side-by-side? Or keep column? */
+        overflow-x: auto;  /* Allow horizontal scroll if nav items are too wide */
+        border-bottom: 2px solid #34495e;
+    }
+
+    .sidebar-header {
+        display: none; /* Hide header text on mobile to save space */
+        /* OR Adjust header style if kept:
+        padding: 0 10px;
+        border-bottom: none;
+        text-align: left; */
+    }
+
+    .sidebar-nav {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .sidebar-nav ul {
+        display: flex;      /* Make nav items horizontal */
+        justify-content: space-around; /* Distribute items */
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    .sidebar-nav li {
+        margin-bottom: 0;
+        flex-grow: 1; /* Allow items to take space */
+        text-align: center;
+    }
+    .sidebar-nav li.active a {
+         border-left: none; /* Remove left border */
+         border-bottom: 3px solid #3498db; /* Use bottom border */
+         background-color: transparent; /* Reset background */
+         color: #fff; /* Keep text white */
+    }
+
+    .sidebar-nav a {
+        padding: 10px 5px; /* Adjust padding */
+        font-size: 0.85em; /* Slightly smaller font */
+        justify-content: center;
+         border-left: none;
+         border-bottom: 3px solid transparent;
+    }
+
+    .sidebar-nav .icon {
+        margin-right: 5px; /* Reduce space */
+        font-size: 1.2em; /* Make icon slightly larger */
+    }
+    /* Hide text labels on very small screens if needed */
+    /* @media (max-width: 480px) {
+        .sidebar-nav a span:not(.icon) { display: none; }
+        .sidebar-nav a { padding: 10px; }
+    } */
+
+
+    /* Main Content adjustments */
+    .main-content {
+        height: auto; /* Allow content flow */
+        overflow: visible; /* Reset overflow */
+    }
+
+    .main-header {
+        padding: 10px 15px;
+    }
+    .main-header h1 {
+        font-size: 1.3em;
+    }
+
+    /* Stack inventory panes */
+    .content-area {
+        padding: 10px; /* Reduce padding */
+        /* Reset display for non-inventory views */
+        display: block;
+    }
+    .inventory-view {
+        flex-direction: column;
+        gap: 15px;
+        /* Reset display for this specific view */
+        display: flex;
+    }
+
+    /* Inventory List Pane adjustments */
+    .inventory-list-pane {
+        width: 100%;      /* Full width */
+        max-width: none;  /* Remove max width */
+        border-right: none; /* Remove side border */
+        border-bottom: 1px solid #e0e0e0; /* Add bottom border */
+        overflow-y: visible; /* Let the page scroll */
+        height: auto; /* Auto height */
+        max-height: 45vh; /* Limit height, allow internal scroll if needed */
+        min-height: 250px; /* Ensure it's not too small */
+    }
+
+    .list-controls {
+         flex-direction: column; /* Stack controls vertically */
+         align-items: stretch; /* Make controls take full width */
+         padding: 10px;
+    }
+    .availability-check-controls {
+         flex-direction: column; /* Stack check controls vertically */
+         align-items: stretch;
+         gap: 8px;
+         margin-top: 15px;
+         padding-top: 15px;
+    }
+     #check-code-input,
+     #check-date-input,
+     #check-availability-btn,
+     #search-input,
+     #filter-btn {
+        flex-basis: auto; /* Reset basis */
+        width: 100%; /* Force full width */
+     }
+
+
+    /* Inventory Detail Pane adjustments */
+    .inventory-detail-pane {
+        width: 100%;
+        overflow-y: visible; /* Let the page scroll */
+        padding: 15px 10px; /* Adjust padding */
+        height: auto;
+    }
+    .placeholder-message {
+         min-height: 150px; /* Ensure placeholder takes some space */
+    }
+
+    /* Detail Body: Stack image and info */
+    .detail-body {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .detail-image-section {
+        width: 80%; /* Adjust image width */
+        max-width: 280px; /* Limit max size */
+        margin: 0 auto 15px auto; /* Center image */
+    }
+     .detail-info-section p strong {
+        min-width: 70px; /* Slightly reduce label width */
+    }
+
+    /* Adjust button sizes / layout */
+    .detail-actions .btn {
+         flex-grow: 1; /* Allow buttons to share width */
+         text-align: center;
+    }
+
+     /* General font size adjustment */
+     body {
+        font-size: 15px; /* Adjust base font size for mobile */
+     }
+     h1, h2, h3 { /* Adjust heading sizes if needed */
+        font-size: 1.3em;
+     }
+     h3 { font-size: 1.1em; }
+
+} /* End of @media (max-width: 768px) */
+
+
+/* Optional: Further adjustments for very small screens */
+@media (max-width: 480px) {
+     body {
+        font-size: 14px;
+     }
+     .sidebar-nav a {
+        font-size: 0.8em;
+     }
+     .detail-header h2 {
+        font-size: 1.4em;
+     }
+     .btn {
+        padding: 8px 14px;
+        font-size: 0.9em;
+     }
+}
+
 /* Basic Reset & Body Styling */
 * {
     box-sizing: border-box;
